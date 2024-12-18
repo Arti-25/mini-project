@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickCab</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Welcome Message -->
+    <div class="welcome-message">
+        <h2>Welcome to QuickCab!</h2>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <!-- Logo -->
+            <h1 class="logo">QuickCab</h1>
+
+            <!-- Navigation -->
+            <div class="header-right">
+                <!-- Admin Button -->
+                <button><a href="admin.html">Admin</a></button>
+
+                <!-- Sign Up Button -->
+                <button><a href="sign.html">Sign Up</a></button>
+
+                <!-- Login Button -->
+                <button><a href="signin.html">Login</a></button>
+                
+                <!-- Settings Dropdown -->
+                <div class="settings-dropdown">
+                    <img src="settings-icon.png" alt="Settings" class="settings-icon">
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="driver.html">Driver</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Booking Form -->
+    <!-- Main Booking Form -->
+<div class="container">
+    <div class="booking-section">
+        <div class="heading">Book Your Ride</div>
+
+        <form id="booking-form" onsubmit="submitBookingForm(event)">
+            <!-- Pickup Location -->
+            <div class="input-group">
+                <label for="pickup-location">Pickup Location</label>
+                <input type="text" id="pickup-location" placeholder="Enter pickup location" required>
+            </div>
+
+            <!-- Drop Location -->
+            <div class="input-group">
+                <label for="drop-location">Drop Location</label>
+                <input type="text" id="drop-location" placeholder="Enter drop location" required>
+            </div>
+
+            <!-- Vehicle Type -->
+            <div class="input-group">
+                <label for="vehicle-type">Vehicle Type</label>
+                <select id="vehicle-type" required>
+                    <option value="" disabled selected>Select vehicle type</option>
+                    <option value="car">Car</option>
+                    <option value="cab">Taxi</option>
+                    <option value="bike">Bike</option>
+                    <option value="auto">Auto</option>
+                </select>
+            </div>
+
+            <!-- Pickup Date -->
+            <div class="input-group">
+                <label for="pickup-date">Pickup Date</label>
+                <input type="date" id="pickup-date" required>
+            </div>
+
+            <!-- Pickup Time -->
+            <div class="input-group">
+                <label for="pickup-time">Pickup Time</label>
+                <input type="time" id="pickup-time" required>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="input-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="Enter phone number" required>
+            </div>
+
+            <!-- Search Now Button -->
+            <button type="submit" class="search-button">Search Now</button>
+        </form>
+    </div>
+</div>
+
+
+    <script>
+        // Function to validate form and redirect to vehicle type page
+        function redirectToVehicleTypePage() {
+            // Get form values
+            const pickupLocation = document.getElementById("pickup-location").value;
+            const dropLocation = document.getElementById("drop-location").value;
+            const vehicleType = document.getElementById("vehicle-type").value;
+            const pickupDate = document.getElementById("pickup-date").value;
+            const pickupTime = document.getElementById("pickup-time").value;
+            const phone = document.getElementById("phone").value;
+
+            // Validate all fields
+            if (pickupLocation && dropLocation && vehicleType && pickupDate && pickupTime && phone) {
+                const today = new Date().toISOString().split("T")[0]; // Today's date
+                if (pickupDate < today) {
+                    alert("Please select a valid date (not in the past).");
+                } else {
+                    // Redirect to the appropriate vehicle type page with query parameters
+                    const url = `${vehicleType}.html?pickup=${encodeURIComponent(pickupLocation)}&drop=${encodeURIComponent(dropLocation)}&date=${encodeURIComponent(pickupDate)}&time=${encodeURIComponent(pickupTime)}&phone=${encodeURIComponent(phone)}`;
+                    window.location.href = url;
+                }
+            } else {
+                alert("Please fill in all required fields.");
+            }
+        }
+    </script>
+        <!-- About Section -->
+        <section id="about" class="section">
+            <h2>About Us</h2>
+            <p>
+                Welcome to QuickCab! We aim to provide the most affordable and reliable cab booking services.
+                With our range of vehicles, including cars, bikes, and autos, we ensure a comfortable journey for you.
+            </p>
+        </section>
+    
+        <!-- Blog Section -->
+        <section id="blog" class="section">
+            <h2>Our Blog</h2>
+            <div class="blog-container">
+                <div class="blog-post">
+                    <h3>How QuickCab is Revolutionizing Cab Services</h3>
+                    <p>We offer innovative cab solutions tailored to your daily commute. Read more about our advanced booking system and affordable pricing.</p>
+                </div>
+                <div class="blog-post">
+                    <h3>Top 5 Tips for a Comfortable Ride</h3>
+                    <p>Learn how to make your travel experience smoother with these easy tips.</p>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <h2>Contact Us</h2>
+            <p>Have any queries or need support? Reach out to us!</p>
+            <form id="contact-form">
+                <div class="input-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="input-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="search-button">Send Message</button>
+            </form>
+        </section>
+        <script src="script.js"></script>
+</body>
+</html>

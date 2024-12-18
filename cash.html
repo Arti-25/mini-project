@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline Payment - QuickCab</title>
+    <style>
+        /* General body styling with background image */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('car.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        /* Header styling */
+        header {
+            background-color: rgba(0, 123, 255, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        /* Container for content */
+        .container {
+            width: 90%;
+            max-width: 500px;
+            margin: 2rem auto;
+            background: rgba(0, 0, 0, 0.7);  /* Blackish background */
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+
+        /* Styling for the amount box */
+        .amount-box {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Input and textarea fields styling */
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Button styling */
+        button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>QuickCab</h1>
+    </header>
+
+    <div class="container">
+        <div class="amount-box">
+            <p>Passengers-Details<span id="vehicleName">N/A</span></p>
+            <p>Amount: ₹<span id="fareAmount">0</span></p>
+        </div>
+
+        <form>
+            <input type="text" placeholder="Name" required>
+            <textarea placeholder="Address" required></textarea>
+            <input type="tel" placeholder="Phone Number" required>
+            <button type="submit">Confirm Booking</button>
+        </form>
+    </div>
+
+    <script>
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return { fare: params.get("amount"), vehicle: params.get("vehicle") };
+        }
+
+        function displayDetails() {
+            const { fare, vehicle } = getQueryParams();
+            document.getElementById("fareAmount").textContent = fare;
+            document.getElementById("vehicleName").textContent = vehicle;
+        }
+
+        displayDetails();
+    </script>
+</body>
+</html>

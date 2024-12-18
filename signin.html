@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="signin.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <!-- Login Type (Driver or Passenger) -->
+            <div class="input-group">
+                <label for="user-type">Login as</label>
+                <select id="user-type" name="user-type" required>
+                    <option value="passenger">Passenger</option>
+                    <option value="driver">Driver</option>
+                </select>
+            </div>
+
+            <!-- Email Input with Icon -->
+            <div class="input-group email-input">
+                <label for="email">Email</label>
+                <span class="email-icon">&#9993;</span>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <!-- Password Input with Icon -->
+            <div class="input-group password-input">
+                <label for="password">Password</label>
+                <span class="password-icon">&#128274;</span>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <!-- Login Button -->
+            <button type="submit" class="login-button">Login</button>
+        </form>
+
+        <!-- Sign Up Prompt -->
+        <p class="signup-prompt">Don't have an account? <a href="sign.html">Sign Up</a></p>
+    </div>
+
+    <script src="signin.js"></script>
+</body>
+</html>

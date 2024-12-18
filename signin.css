@@ -1,0 +1,110 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('car.jpg'); /* Background image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+.login-container {
+    background: rgba(0, 0, 0, 0.8); /* Blackish background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    color: white;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: white;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.email-icon,
+.password-icon {
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    left: 12px;
+    color: #888;
+    font-size: 1.2em;
+}
+
+.input-group input[type="email"],
+.input-group input[type="password"] {
+    padding-left: 40px; /* Extra padding for icon */
+}
+
+input[type="email"] {
+    padding-left: 40px; /* Ensuring space for email icon */
+}
+
+input[type="password"] {
+    padding-left: 40px; /* Ensuring space for password icon */
+}
+
+/* Align icons */
+.email-icon {
+    left: 12px;
+}
+
+.password-icon {
+    left: 12px;
+}
+
+button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}

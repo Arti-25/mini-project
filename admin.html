@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - QuickCab</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            background-image: url('car.jpg'); /* Optional background image */
+            background-size: cover;
+            background-position: center;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(0, 123, 255, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        /* Container */
+        .container {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2rem;
+            border-radius: 12px;
+            color: #fff;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        h2 {
+            margin-bottom: 1rem;
+            color: #17a2b8;
+            text-align: center;
+        }
+
+        /* Form Group */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        select, input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 6px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        select:focus, input:focus, textarea:focus {
+            outline: 2px solid #17a2b8;
+        }
+
+        /* Button */
+        .send-btn {
+            background-color: #28a745;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .send-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Admin Panel - Send Message</h1>
+    </header>
+
+    <div class="container">
+        <h2>Send Message</h2>
+        <form id="adminForm">
+            <!-- Select Recipient -->
+            <div class="form-group">
+                <label for="recipientType">Select Recipient:</label>
+                <select id="recipientType" name="recipientType" required>
+                    <option value="" disabled selected>Select Recipient Type</option>
+                    <option value="Driver">Driver</option>
+                    <option value="Passenger">Passenger</option>
+                </select>
+            </div>
+
+            <!-- Recipient Name -->
+            <div class="form-group">
+                <label for="recipientName">Recipient Name:</label>
+                <input type="text" id="recipientName" name="recipientName" placeholder="Enter Recipient's Name" required>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="form-group">
+                <label for="recipientPhone">Phone Number:</label>
+                <input type="tel" id="recipientPhone" name="recipientPhone" placeholder="Enter Recipient's Phone Number" required>
+            </div>
+
+            <!-- Message -->
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" placeholder="Enter your message" required></textarea>
+            </div>
+
+            <!-- Send Button -->
+            <button type="submit" class="send-btn">Send Message</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('adminForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent form submission
+
+            const recipientType = document.getElementById('recipientType').value;
+            const recipientName = document.getElementById('recipientName').value;
+            const recipientPhone = document.getElementById('recipientPhone').value;
+            const message = document.getElementById('message').value;
+
+            // Send form data to the backend
+            fetch('http://localhost:3000/send-message', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    recipientType: recipientType,
+                    recipientName: recipientName,
+                    recipientPhone: recipientPhone,
+                    message: message
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Message sent successfully!');
+                } else {
+                    alert('Error sending message');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while sending the message');
+            });
+        });
+    </script>
+</body>
+</html>

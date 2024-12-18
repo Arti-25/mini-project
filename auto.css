@@ -1,0 +1,170 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    background-image: url('auto.jpg'); /* Add the auto background image */
+    background-size: cover; /* Ensure the background covers the entire screen */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+}
+
+/* Header Styles */
+header {
+    background-color: rgba(0, 123, 255, 0.7); /* Semi-transparent blue background */
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Container Styles */
+.container {
+    width: 80%; /* Reduced width of the main container */
+    max-width: 1000px; /* Reduced maximum width */
+    margin: 2rem auto;
+    background: #333; /* Blackish background for the container */
+    padding: 1rem; /* Reduced padding */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #fff;
+}
+
+/* Route Info Styling */
+#route-info {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+/* Auto List Styles */
+.autos-list {
+    display: flex;
+    gap: 1rem; /* Adjust the gap between auto containers */
+    flex-wrap: nowrap; /* Ensure items don't wrap to the next line */
+    justify-content: flex-start; /* Align items to the left */
+    overflow-x: auto; /* Enable horizontal scrolling if content overflows */
+    margin-bottom: 2rem; /* Add margin at the bottom if needed */
+}
+
+/* Auto Container Styling */
+.auto-container {
+    background: #222; /* Blackish background for each container */
+    border: 1px solid #555;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 200px; /* Set fixed width for each auto container */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #fff;
+    margin-bottom: 1rem; /* Reduced bottom margin */
+}
+
+/* Auto Image Styling */
+.auto-card img {
+    width: 100%; /* Ensure image takes up available width in the container */
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    max-height: 120px; /* Adjust the image height */
+    object-fit: cover;
+}
+
+/* Auto Card Text Styling */
+.auto-card p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+/* Book Now Button */
+.book-now {
+    background: #28a745; /* Green button */
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.3s;
+}
+
+.book-now:hover {
+    background: #218838;
+}
+
+.book-now:active {
+    background: #007bff; /* Blue when clicked */
+}
+
+/* Booking Options Modal Styles */
+#booking-options-modal {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+    color: #333;
+}
+
+.modal-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.modal-content button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    margin: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.modal-content button:hover {
+    background-color: #0056b3;
+}
+
+.modal-content button:active {
+    background-color: #004085;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .autos-list {
+        flex-wrap: nowrap; /* Keep the layout horizontal */
+        overflow-x: auto; /* Enable horizontal scrolling if content overflows */
+        gap: 0.5rem; /* Reduced gap between auto containers */
+    }
+
+    .auto-container {
+        width: 150px; /* Reduce width of auto containers for small screens */
+        margin: 0 0.5rem; /* Add margin between containers */
+    }
+
+    .modal-content {
+        width: 90%; /* Ensure modal is responsive */
+        padding: 1.5rem;
+    }
+}

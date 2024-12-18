@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/styles1.css">
+</head>
+<body>
+    <div class="signup-container">
+        <h2>Sign Up</h2>
+        <form id="signup-form">
+            <!-- User Type Selection (Passenger or Driver) -->
+            <div class="input-group">
+                <label for="user-type">Sign up as</label>
+                <select id="user-type" name="user-type" required>
+                    <option value="passenger">Passenger</option>
+                    <option value="driver">Driver</option>
+                </select>
+            </div>
+
+            <!-- Name Input with Icon -->
+            <div class="input-group name-input">
+                <label for="name">Name</label>
+                <span class="name-icon">&#128100;</span>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+
+            <!-- Email Input with Icon -->
+            <div class="input-group email-input">
+                <label for="email">Email</label>
+                <span class="email-icon">&#9993;</span>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            
+            <!-- Phone Number Input with Icon -->
+            <div class="input-group phone-input">
+                <label for="phone">Phone Number</label>
+                <span class="phone-icon">&#9742;</span> <!-- Phone icon -->
+               <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+          </div>
+            <!-- Password Input with Icon -->
+            <div class="input-group password-input">
+                <label for="password">Password</label>
+                <span class="password-icon">&#128274;</span>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <!-- Confirm Password Input with Icon -->
+            <div class="input-group confirm-password-input">
+                <label for="confirm-password">Confirm Password</label>
+                <span class="confirm-password-icon">&#128274;</span>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Re-enter your password" required>
+            </div>
+
+            <!-- Terms and Policy Checkbox -->
+            <div class="input-group checkbox-group">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I agree to the <a href="#">terms and policy</a></label>
+            </div>
+
+            <!-- Sign Up Button -->
+            <button type="submit" class="signup-button">Sign Up</button>
+        </form>
+
+        <!-- Already have an account -->
+         
+        <p class="signin-prompt">Already have an account? <a href="signin.html">Sign In</a></p>
+    </div>
+
+    <script src="script1.js"></script>
+</body>
+</html>

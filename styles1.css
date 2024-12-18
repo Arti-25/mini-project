@@ -1,0 +1,115 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('car.jpg'); /* Add your background image here */
+    background-size: cover; /* Ensures the image covers the entire screen */
+    background-position: center; /* Centers the background image */
+    background-attachment: fixed; /* Keeps the background fixed while scrolling */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Signup Container */
+.signup-container {
+    width: 100%;
+    max-width: 400px; /* Limits container width */
+    background-color: rgba(0, 0, 0, 0.8); /* Blackish background with transparency */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Slight shadow for contrast */
+    text-align: center;
+}
+
+/* Header Text */
+h2 {
+    margin-bottom: 20px;
+    color: white; /* White text for better readability */
+}
+
+/* General Input Styling */
+.input-group {
+    position: relative;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: white; /* White text for better readability */
+}
+
+.input-group select,
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group input[type="password"],
+.input-group input[type="tel"] {
+    width: 100%;
+    padding: 12px 15px;  /* Adjust padding to ensure enough space for icons */
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box; /* Ensures padding is inside the box */
+    font-size: 14px;
+    padding-left: 40px; /* Adds space for the left icon */
+}
+
+/* Icon Positioning */
+.name-input .name-icon,
+.email-input .email-icon,
+.password-input .password-icon,
+.confirm-password-input .confirm-password-icon,
+.phone-input .phone-icon {
+    position: absolute;
+    top: 65%; /* Align vertically with the input */
+    transform: translateY(-50%);
+    color: #888; /* Subtle icon color */
+    font-size: 1.2em; /* Icon size matches other icons */
+    left: 12px; /* Align icon to the left */
+}
+
+/* Terms and Policy Checkbox */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Sign Up Button */
+.signup-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.signup-button:hover {
+    background-color: #007BFF;
+}
+
+/* Already have an account */
+.signin-prompt {
+    margin-top: 15px;
+    font-size: 14px;
+    color: white; /* White text for better readability */
+}
+
+.signin-prompt a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.signin-prompt a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,59 @@
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('car.jpg'); /* Replace with the correct path to car.jpg */
+    background-size: cover; /* Ensures the image covers the entire screen */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Blackish Container Styling */
+.about-container {
+    max-width: 600px;
+    background-color: rgba(0, 0, 0, 0.8); /* Blackish background with transparency */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Slight shadow for depth */
+    text-align: center;
+    color: #fff; /* White text for readability */
+}
+
+/* Header Styling */
+h1 {
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+/* Paragraph Styling */
+p {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Sub-header Styling */
+h2 {
+    color: #4CAF50;
+    margin-top: 20px;
+}
+
+/* Back Button Styling */
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.back-button:hover {
+    background-color: #45a049;
+}

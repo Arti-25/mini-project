@@ -1,0 +1,222 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    background-image: url('bike.jpg'); /* Add the bike background image */
+    background-size: cover; /* Ensure the background covers the entire screen */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    color: #fff; /* Set a default font color for better visibility */
+}
+
+/* Header Styles */
+header {
+    background-color: rgba(0, 123, 255, 0.8); /* Slightly more transparent blue */
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    position: sticky; /* Make the header sticky */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for better visibility */
+}
+
+.logo {
+    font-size: 2.2rem; /* Slightly larger font */
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Container Styles */
+.container {
+    width: 90%; /* Increased width for better fit */
+    max-width: 1200px; /* Increased maximum width */
+    margin: 2rem auto;
+    background: rgba(0, 0, 0, 0.8); /* Transparent black background */
+    padding: 1.5rem; /* Slightly increased padding */
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+}
+
+/* Bike List Styles */
+.bikes-list {
+    display: flex;
+    gap: 1.5rem; /* Adjusted gap for better spacing */
+    flex-wrap: nowrap; /* Keep a single row */
+    justify-content: flex-start; /* Align items to the left */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding-bottom: 1rem; /* Add padding to the bottom for better spacing */
+    scrollbar-width: thin; /* For modern browsers */
+    scrollbar-color: #555 #222; /* Customize scrollbar colors */
+}
+
+.bikes-list::-webkit-scrollbar {
+    height: 8px;
+}
+
+.bikes-list::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 4px;
+}
+
+.bikes-list::-webkit-scrollbar-track {
+    background: #222;
+}
+
+/* Bike Container Styling */
+.bike-container {
+    background: #222; /* Dark background for each bike container */
+    border: 1px solid #555; /* Subtle border */
+    border-radius: 10px;
+    padding: 1rem;
+    width: 220px; /* Increased width */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    text-align: center;
+    color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bike-container:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
+}
+
+/* Bike Image Styling */
+.bike-card img {
+    width: 100%; /* Ensure image takes up available width */
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    max-height: 140px; /* Increased image height */
+    object-fit: cover; /* Ensure proper image fit */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for the image */
+}
+
+/* Bike Card Text Styling */
+.bike-card p {
+    margin: 0.5rem 0;
+    font-size: 1rem; /* Increased font size for better readability */
+    font-weight: bold;
+    color: #ddd; /* Slightly lighter text color */
+}
+
+/* Book Now Button */
+.book-now {
+    background: #28a745; /* Green button */
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.2rem; /* Slightly larger padding */
+    font-size: 1rem;
+    border-radius: 8px; /* More rounded corners */
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.3s, transform 0.3s ease;
+}
+
+.book-now:hover {
+    background: #218838;
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+.book-now:active {
+    background: #1e7e34;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Dark transparent overlay */
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    color: #333;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 90%;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.modal-content button {
+    margin: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    background: #007bff;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.modal-content button:hover {
+    background: #0056b3;
+}
+
+.modal-content button.cancel {
+    background: #6c757d;
+}
+
+.modal-content button.cancel:hover {
+    background: #5a6268;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .bikes-list {
+        gap: 1rem;
+    }
+
+    .bike-container {
+        width: 180px; /* Adjusted width for smaller screens */
+    }
+
+    .bike-card img {
+        max-height: 120px; /* Reduced image height for smaller screens */
+    }
+
+    .modal-content {
+        padding: 1.5rem;
+    }
+
+    .modal-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .modal-content button {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* Animation for Modal */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

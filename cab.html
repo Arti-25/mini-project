@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Cabs - QuickCab</title>
+    <link rel="stylesheet" href="cab.css">
+    <script>
+        // Pre-stored distances between locations
+        const distances = {
+            "rec_sonbhadra_robertsganj": 10,
+            "rec_sonbhadra_dalla": 30,
+            "dalla_kota": 12,
+            "rec_sonbhadra_churk": 3,
+            "rec_sonbhadra_vijaygadh": 17,
+            "lucknow_sonbhadra": 394,
+            "sonbhadra_lucknow": 394
+        };
+
+        // Pre-stored cab data with individual rate per km
+        const cabs = [
+            { id: 1, image: "cab1.jpg", ratePerKm: 20 },
+            { id: 2, image: "cab2.jpg", ratePerKm: 15 },
+            { id: 3, image: "cab3.jpg", ratePerKm: 20 },
+            { id: 4, image: "cab4.jpg", ratePerKm: 50 }
+        ];
+
+        // Extract query parameters
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                pickup: params.get("pickup"),
+                drop: params.get("drop") ? params.get("drop").split(',') : [],
+                bookingType: params.get("bookingType")
+            };
+        }
+
+        // Calculate and display available cabs
+        function displayCabs() {
+            const params = getQueryParams();
+            const totalDistance = calculateTotalDistance(params.pickup, params.drop);
+            const routeInfoDiv = document.getElementById("route-info");
+            const cabsListDiv = document.getElementById("cabs-list");
+
+            // Display route and fare details
+            routeInfoDiv.innerHTML = `
+                <p><strong>Pickup Location:</strong> ${params.pickup}</p>
+                <p><strong>Drop Location(s):</strong> ${params.drop.join(', ')}</p>
+                <p><strong>Total Distance:</strong> ${totalDistance} km</p>
+            `;
+
+            // Display available cabs
+            cabs.forEach(cab => {
+                const cabContainer = document.createElement("div");
+                cabContainer.classList.add("cab-container");
+
+                // Calculate fare using the rate per km for each cab
+                const totalAmount = totalDistance * cab.ratePerKm;
+
+                cabContainer.innerHTML = `
+                    <div class="cab-card">
+                        <img src="${cab.image}" alt="Cab Image" class="cab-image">
+                        <p><strong>Fare:</strong> ₹${totalAmount.toFixed(2)} (₹${cab.ratePerKm}/km)</p>
+                        <button class="book-now" onclick="openBookingOptions(${cab.id}, ${totalAmount})">Book Now</button>
+                    </div>
+                `;
+                cabsListDiv.appendChild(cabContainer);
+            });
+        }
+
+        // Calculate total distance for multi-drop bookings
+        function calculateTotalDistance(pickupLocation, dropLocations) {
+            let totalDistance = 0;
+
+            // Loop through all drop locations and calculate the total distance
+            for (let i = 0; i < dropLocations.length; i++) {
+                const fromLocation = i === 0 ? pickupLocation : dropLocations[i - 1];
+                const toLocation = dropLocations[i];
+                const routeKey = `${fromLocation.toLowerCase().replace(/\s+/g, '_')}_${toLocation.toLowerCase().replace(/\s+/g, '_')}`;
+
+                // Check if distance exists for the route
+                if (distances[routeKey]) {
+                    totalDistance += distances[routeKey];
+                } else {
+                    console.log(`Distance not found for ${routeKey}`);
+                }
+            }
+
+            return totalDistance;
+        }
+
+        // Open booking options modal
+        function openBookingOptions(cabId, totalAmount) {
+            const modal = document.getElementById("booking-options-modal");
+            modal.style.display = "flex";
+            modal.setAttribute("data-cab-id", cabId);
+            modal.setAttribute("data-total-amount", totalAmount);
+        }
+
+        // Close the modal
+        function closeModal() {
+            document.getElementById("booking-options-modal").style.display = "none";
+        }
+
+        // Redirect to payment page
+        function redirectToPayment() {
+            const modal = document.getElementById("booking-options-modal");
+            const cabId = modal.getAttribute("data-cab-id");
+            const totalAmount = modal.getAttribute("data-total-amount");
+            window.location.href = `payment.html?cabId=${cabId}&amount=${totalAmount}`;
+        }
+
+        // Redirect to passenger details page
+        function redirectToPassengerDetails() {
+            const modal = document.getElementById("booking-options-modal");
+            const cabId = modal.getAttribute("data-cab-id");
+            const totalAmount = modal.getAttribute("data-total-amount");
+            window.location.href = `cash.html?cabId=${cabId}&amount=${totalAmount}`;
+        }
+
+        // Initialize page
+        window.onload = displayCabs;
+    </script>
+</head>
+<body>
+    <header>
+        <h1 class="logo">QuickCab</h1>
+    </header>
+
+    <div class="container">
+        <div id="route-info"></div>
+        <div id="cabs-list"></div>
+    </div>
+
+    <!-- Booking Options Modal -->
+    <div id="booking-options-modal" class="modal">
+        <div class="modal-content">
+            <h3>Choose Payment Option</h3>
+            <button onclick="redirectToPayment()">Online Payment</button>
+            <button onclick="redirectToPassengerDetails()">Offline Payment</button>
+            <button onclick="closeModal()">Cancel</button>
+        </div>
+    </div>
+</body>
+</html>

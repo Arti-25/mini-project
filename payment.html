@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - QuickCab</title>
+    <script>
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                cabId: params.get("cabId"),
+                amount: params.get("amount")
+            };
+        }
+
+        function displayPaymentDetails() {
+            const params = getQueryParams();
+            document.getElementById("payment-info").innerHTML = `
+                <h2 class="payment-heading">Payment Details</h2>
+                <div class="payment-details">
+                    <p><strong>Cab ID:</strong> ${params.cabId}</p>
+                    <p><strong>Total Amount:</strong> ₹${params.amount}</p>
+                    <button class="pay-now" onclick="showOptions()">Pay Now</button>
+                </div>
+            `;
+        }
+
+        function showOptions() {
+            document.getElementById("payment-modal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("payment-modal").style.display = "none";
+        }
+
+        function proceedToPayment() {
+            alert("Payment successful! Thank you for booking with QuickCab.");
+            window.location.href = "confirmation.html";
+        }
+
+        function signUp() {
+            window.location.href = "public/sign.html";
+        }
+
+        window.onload = displayPaymentDetails;
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-image: url('car.jpg'); /* Background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+        }
+        
+
+        h1 {
+            color: #007bff; /* Blue color for QuickCab */
+            font-size: 3rem;
+            margin-bottom: 10px;
+             /* Black line underneath */
+            padding-bottom: 5px;
+        }
+
+        h2.payment-heading {
+            color: #000; /* Black color for Payment Details */
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .payment-details {
+            background-color: rgba(0, 0, 0, 0.7); /* Blackish background */
+            padding: 20px;
+            border-radius: 10px;
+            color: #fff;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .pay-now {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .modal-content h3 {
+            color: #333;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .modal-content button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .proceed-btn {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .signup-btn {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .close-btn {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .modal-content form {
+            margin-bottom: 15px;
+        }
+
+        .modal-content p {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>QuickCab</h1>
+    <div id="payment-info">
+        <!-- Payment details will be dynamically populated here -->
+    </div>
+
+    <!-- Modal for options -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <h3>Enter Details to Proceed</h3>
+            <form id="payment-form">
+                <input type="text" id="name" placeholder="Enter your Name" required><br>
+                <input type="text" id="address" placeholder="Enter your Address" required><br>
+                <input type="tel" id="phone" placeholder="Enter your Phone Number" required><br>
+                <input type="text" id="otp" placeholder="Enter OTP" required><br>
+            </form>
+            <button class="signup-btn" onclick="signUp()">Sign Up</button>
+            <button class="proceed-btn" onclick="proceedToPayment()">Proceed to Payment</button>
+            <button class="close-btn" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+</body>
+</html>

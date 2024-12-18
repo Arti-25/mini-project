@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('car.jpg'); /* Add the path to your car image here */
+            background-size: cover; /* Ensures the image covers the entire page */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents repeating the image */
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* Container Styling */
+        .container {
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            width: 80%;
+            max-width: 900px;
+            color: #fff;
+            padding-bottom: 40px; /* Ensure enough space for button positioning */
+        }
+
+        /* Header Styling */
+        h1 {
+            font-size: 36px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        /* Paragraph Styling */
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Button Styling */
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 30px; /* Adds spacing above the button */
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        /* Gallery Section Styling */
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            padding-bottom: 20px; /* Add space below the gallery items */
+        }
+
+        .gallery-item {
+            width: 150px;
+            height: 100px;
+            background-color: #ddd;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Ensures image stays within rounded corners */
+        }
+
+        /* Gallery Images Styling */
+        .gallery-item img {
+            width: 100%;           /* Make the image fill the gallery item width */
+            height: 100%;          /* Make the image fill the gallery item height */
+            object-fit: cover;     /* Ensure the image fits proportionally without distortion */
+            border-radius: 5px;    /* Keep the rounded corners like the container */
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Content Container -->
+    <div class="container">
+        <!-- Page Header -->
+        <h1>Gallery</h1>
+        
+        <!-- Page Description -->
+        <p>Explore images of our services and team!</p>
+        
+        <!-- Gallery Items with Car Images -->
+        <div class="gallery-container">
+            <div class="gallery-item"><img src="car1.jpg" alt="Car 1"></div>
+            <div class="gallery-item"><img src="car2.jpg" alt="Car 2"></div>
+            <div class="gallery-item"><img src="car3.jpg" alt="Car 3"></div>
+            <div class="gallery-item"><img src="car4.jpg" alt="Car 4"></div>
+            <div class="gallery-item"><img src="car5.jpg" alt="Car 5"></div>
+            <div class="gallery-item"><img src="car6.jpg" alt="Car 6"></div>
+        </div>
+        
+        <!-- Back to Home Button -->
+        <a href="index.html" class="button">Back to Home</a>
+    </div>
+</body>
+</html>
